@@ -67,12 +67,14 @@ jobs:
           cd ${GH_PAGES_FOLDER}
           git checkout -b gh-pages
           checkIfErr
+          ls -al
           cd -
 
           echo '[INFO] Copy GitBook output pages...'
           ls -al
-          rm -rf $GH_PAGES_FOLDER
-          cp -rf $BOOK_OUTPUT_DIR $GH_PAGES_FOLDER
+          rm -rf $GH_PAGES_FOLDER/*
+          cp -rf $BOOK_OUTPUT_DIR/* $GH_PAGES_FOLDER/*
+          rm -rf $BOOK_OUTPUT_DIR/.github
           cd $GH_PAGES_FOLDER
           ls -al
 
