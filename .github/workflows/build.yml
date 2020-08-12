@@ -68,7 +68,7 @@ jobs:
           cd ${GH_PAGES_FOLDER}
           git checkout -b gh-pages
           checkIfErr
-          cd ..
+          cd -
 
           echo '[INFO] Copy GitBook output pages...'
           ls -al
