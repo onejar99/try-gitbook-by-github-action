@@ -73,7 +73,8 @@ jobs:
           echo '[INFO] Copy GitBook output pages...'
           ls -al
           rm -rf $GH_PAGES_FOLDER/$BOOK_DIR
-          cp -rf $OUTPUT_DIR $GH_PAGES_FOLDER/$BOOK_DIR
+          #cp -rf $OUTPUT_DIR $GH_PAGES_FOLDER/$BOOK_DIR
+          cp -rf $OUTPUT_DIR/* $GH_PAGES_FOLDER/
           cd $GH_PAGES_FOLDER
           ls -al
 
