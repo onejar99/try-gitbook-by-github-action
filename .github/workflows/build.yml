@@ -61,13 +61,13 @@ jobs:
           GIT_CLONE_URL="https://${MY_SECRET}@github.com/${GITHUB_REPOSITORY}.git"
           export GIT_CLONE_URL
           echo "GIT_CLONE_URL=[$GIT_CLONE_URL]"
-          git clone "https://${MY_SECRET}@github.com/${GITHUB_REPOSITORY}.git" "${GH_PAGES_FOLDER}";
+          git clone "https://${MY_SECRET}@github.com/${GITHUB_REPOSITORY}.git" ${GH_PAGES_FOLDER}
           #git clone ${GIT_CLONE_URL} ${GH_PAGES_FOLDER}
           checkIfErr
           cd ${GH_PAGES_FOLDER}
           git checkout -b gh-pages
           checkIfErr
-          cd ..
+          cd -
 
           echo '[INFO] Copy GitBook output pages...'
           ls -al
