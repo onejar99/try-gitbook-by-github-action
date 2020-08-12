@@ -42,6 +42,7 @@ jobs:
           cd $BOOK_DIR
           docker run --rm -p 4000:4000 -v $(pwd):/gitbook onejar99/gitbook:light "gitbook init && gitbook install && gitbook build"
           checkIfErr
+          cd ${GITHUB_WORKSPACE}
 
           echo '[INFO] Start to deploy...'
           echo "SHELL=[$SHELL]"
