@@ -79,11 +79,11 @@ jobs:
           echo '[INFO] Add new commit for gh-pages...'
           git config --local user.name $USER_NAME
           git config --local user.email $USER_EMAIL
-          git push --set-upstream origin gh-pages
           git status
           git add --all
           git commit -m "Deploy to Github Pages 🥂 (from $GITHUB_SHA)"
           checkIfErr
+          git log
           echo '[INFO] Push to gh-pages...'
           git push --set-upstream origin gh-pages -f
           checkIfErr
