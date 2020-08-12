@@ -14,8 +14,7 @@ jobs:
       MY_SECRET   : ${{secrets.GH_ACCESS_TOKEN}}
       USER_NAME   : onejar99
       USER_EMAIL  : onejar99@gmail.com
-      BOOK_DIR    : .
-      OUTPUT_DIR  : ./_book
+      BOOK_OUTPUT_DIR  : _book
 
     steps:
     - name: Checkout 🛎️
@@ -39,7 +38,6 @@ jobs:
           }
 
           ls -al
-          cd $BOOK_DIR
           docker run --rm -p 4000:4000 -v $(pwd):/gitbook onejar99/gitbook:light "gitbook init && gitbook install && gitbook build"
           checkIfErr
           echo '[INFO] Prepare to deploy...'
@@ -52,7 +50,7 @@ jobs:
           echo "MY_SECRET=[$MY_SECRET]"
           echo "USER_NAME=[$USER_NAME]"
           echo "USER_EMAIL=[$USER_EMAIL]"
-          echo "OUTPUT_DIR=[$OUTPUT_DIR]"
+          echo "BOOK_OUTPUT_DIR=[$BOOK_OUTPUT_DIR]"
           echo "whoami=[$(whoami)]"
           echo "pwd=[$(pwd)]"
           GH_PAGES_FOLDER=${GITHUB_REPOSITORY}_ghpages
@@ -73,8 +71,8 @@ jobs:
 
           echo '[INFO] Copy GitBook output pages...'
           ls -al
-          rm -rf $GH_PAGES_FOLDER/$BOOK_DIR
-          cp -rf $OUTPUT_DIR $GH_PAGES_FOLDER/$BOOK_DIR
+          rm -rf $GH_PAGES_FOLDER
+          cp -rf $BOOK_OUTPUT_DIR $GH_PAGES_FOLDER
           cd $GH_PAGES_FOLDER
           ls -al
 
