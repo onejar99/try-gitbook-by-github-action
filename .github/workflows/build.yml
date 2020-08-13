@@ -88,7 +88,9 @@ jobs:
           git add --all
           git commit -m "Deploy to Github Pages 🥂 (from $GITHUB_SHA)"
           checkIfErr
+          git log
           echo '[INFO] Push to gh-pages...'
+          git status
           git push --set-upstream origin gh-pages -f
           checkIfErr
           echo '[INFO] Deploy gh-pages completed! 💪💯'
