@@ -1,10 +1,10 @@
-name: Build my gitbook and deploy to gh-pages
+name: Build (by script) my gitbook and deploy to gh-pages
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
+  #push:
+  #  branches:
+  #    - master
 
 jobs:
   build-and-deploy:
